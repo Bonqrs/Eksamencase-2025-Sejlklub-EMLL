@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 using WebApplication1.Services;
-using WebApplication1.Models;
+using WebApplication1.Models.MemberModel;
 
 namespace WebApplication1.Pages.Medlemmer
 {
