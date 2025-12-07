@@ -1,7 +1,11 @@
+using WebApplication1.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+builder.Services.AddSingleton<MemberRepository>();
 
 var app = builder.Build();
 
@@ -21,6 +25,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
-//k
+
 app.Run();
-//K12
+
+
