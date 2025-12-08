@@ -1,3 +1,4 @@
+using WebApplication1.Interfaces;
 using WebApplication1.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 builder.Services.AddSingleton<MemberRepository>();
+builder.Services.AddSingleton<IBookingRepository, BookingRepository>();
+builder.Services.AddSingleton<IBoatRepository, BoatRepository>();
+
+
+
 
 var app = builder.Build();
 
