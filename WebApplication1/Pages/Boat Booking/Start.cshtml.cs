@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApplication1.Clubs_Boats.models;
 using WebApplication1.Interfaces;
 
-namespace WebApplication1.Pages.Båd_Booking
+namespace WebApplication1.Pages.Boat_Booking
 {
     public class CreateModel : PageModel
     {
@@ -14,6 +14,7 @@ namespace WebApplication1.Pages.Båd_Booking
             _boatRepo = boatRepo;
         }
 
+        [BindProperty]
         public Boat Boat { get; set; } = new();
 
         public IActionResult OnPost()
