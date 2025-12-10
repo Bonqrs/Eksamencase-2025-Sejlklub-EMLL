@@ -1,33 +1,66 @@
 ﻿@page
 @model WebApplication1.Pages.Boat_Booking.IndexModel
 @{
-    ViewData["Title"] = "Båd Booking";
-}
 
-<h1>Båd Booking Oversigt</h1>
+    <h1>Booking Oversight</h1>
 
-<p>
-    <a asp-page="Start" class="btn btn-primary">Opret ny båd</a>
-</p>
+    <p>
+        <a asp-page="Create" class="btn btn-primary">Opret ny booking</a>
+    </p>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Navn</th>
-            <th>Type</th>
-            <th>Kapacitet</th>
-            <th>Årgang</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var boat in Model.Boats)
-        {
+    <h2>Aktive ture (på vandet)</h2>
+
+    <table class="table table-stiped">
+        <thread>
             <tr>
-                <td>@boat.Name</td>
-                <td>@boat.BoatTypeId</td>
-                <td>@boat.Capacity</td>
-                <td>@boat.YearBuilt</td>
+                <th>Medlem</th>
+                <th>Båd</th>
+                <th>Destination</th>
+                <th>Start</th>
+                <th>Handling</th>
             </tr>
-        }
+        </thread>
+        <tbody>
+    @foreach (var b in Model.ActiveBookings)
+    {
+             <tr>
+                <td>@b.MemberId</td>
+                <td>@b.BoatId</td>
+                <td>@b.Destination</td>
+                <td>@b.StartTime</td>
+                <td>
+                    <a asp-page="End" asp-route-id="@b.Id" class="btn btn-danger">
+                    Afslut tur
+                    </a>
+                </td>
+             </tr>
+    }
+        </tbody>
+    </table>
 
-</table>
+    <h2>Afsluttede ture</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Medlem</th>
+                <th>Båd</th>
+                <th>Destination</th>
+                <th>Start</th>
+                <th>Slut</th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var b in Model.CompletedBookings)
+    {
+            <tr>
+                <td>@b.MemberId</td>
+                <td>@b.BoatId</td>
+                <td>@b.Destination</td>
+                <td>@b.StartTime</td>
+                <td>@b.EndTime</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}

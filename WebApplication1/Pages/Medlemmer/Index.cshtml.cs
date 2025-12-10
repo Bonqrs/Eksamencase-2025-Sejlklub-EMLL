@@ -19,7 +19,7 @@ namespace WebApplication1.Pages.Medlemmer
 
         public void OnGet()
         {
-            Members = repo.GetAll();
+            Members = repo.List();
         }
     }
 }

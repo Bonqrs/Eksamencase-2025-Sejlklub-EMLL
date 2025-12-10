@@ -1,0 +1,33 @@
+﻿@page
+@model WebApplication1.Pages.Boats.IndexModel
+@{
+    ViewData["Title"] = "Båd Booking";
+}
+
+<h1>Båd Booking Oversigt</h1>
+
+<p>
+    <a asp-page="Start" class="btn btn-primary">Opret ny båd</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Navn</th>
+            <th>Type</th>
+            <th>Kapacitet</th>
+            <th>Årgang</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var boat in Model.Boats)
+        {
+            <tr>
+                <td>@boat.Name</td>
+                <td>@boat.BoatTypeId</td>
+                <td>@boat.Capacity</td>
+                <td>@boat.YearBuilt</td>
+            </tr>
+        }
+
+</table>

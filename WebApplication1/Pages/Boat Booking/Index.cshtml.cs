@@ -1,24 +1,27 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using WebApplication1.Clubs_Boats.models;
 using WebApplication1.Interfaces;
+using WebApplication1.Models.Booking;
 
 namespace WebApplication1.Pages.Boat_Booking
 {
     public class IndexModel : PageModel
     {
-        private readonly IBoatRepository _boatRepo;
+        private readonly IBookingRepository _bookingRepo;
 
-        public IndexModel(IBoatRepository boatRepo)
+        public IndexModel(IBookingRepository bookingRepo)
         {
-            _boatRepo = boatRepo;
+            _bookingRepo = bookingRepo;
         }
 
-        public List<Boat> Boats { get; set; } = new();
+        public List<Booking> ActiveBookings { get; set; }
+        public List<Booking> CompletedBookings { get; set; }
 
         public void OnGet()
         {
-            Boats = _boatRepo.List();
+            var all = _bookingRepo.List();
+            ActiveBookings = all.Where(b => b.EndTime == null).ToList();
+            CompletedBookings = all.Where(b => b.EndTime != null).ToList();
         }
     }
 }
