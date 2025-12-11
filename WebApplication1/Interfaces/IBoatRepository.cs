@@ -6,8 +6,8 @@ namespace WebApplication1.Interfaces
 {
     public interface IBoatRepository
     {
-        List<Boat> List();
-        Boat? Get(int id);
+        List<Boat> GetAll();
+        Boat? GetById(int id);
         void Add(Boat boat);
         void Update(Boat boat);
         void Delete(int id);

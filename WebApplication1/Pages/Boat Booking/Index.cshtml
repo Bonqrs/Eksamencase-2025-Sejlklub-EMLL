@@ -24,8 +24,8 @@
     @foreach (var b in Model.ActiveBookings)
     {
              <tr>
-                <td>@b.MemberId</td>
-                <td>@b.BoatId</td>
+                <td>@b.MemberName</td>
+                <td>@b.BoatName</td>
                 <td>@b.Destination</td>
                 <td>@b.StartTime</td>
                 <td>
@@ -54,8 +54,8 @@
     @foreach (var b in Model.CompletedBookings)
     {
             <tr>
-                <td>@b.MemberId</td>
-                <td>@b.BoatId</td>
+                <td>@b.MemberName</td>
+                <td>@b.BoatName</td>
                 <td>@b.Destination</td>
                 <td>@b.StartTime</td>
                 <td>@b.EndTime</td>

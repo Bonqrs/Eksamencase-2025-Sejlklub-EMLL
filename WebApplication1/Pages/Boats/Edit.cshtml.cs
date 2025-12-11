@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
+using WebApplication1.Interfaces;
 using WebApplication1.Services;
 using WebApplication1.Clubs_Boats.models;
 
@@ -8,9 +8,9 @@ namespace WebApplication1.Pages.Boats
 {
     public class EditModel : PageModel
     {
-        private readonly BoatRepository _boatRepo;
+        private readonly IBoatRepository _boatRepo;
 
-        public EditModel(BoatRepository boatRepo)
+        public EditModel(IBoatRepository boatRepo)
         {
             _boatRepo = boatRepo;
         }
