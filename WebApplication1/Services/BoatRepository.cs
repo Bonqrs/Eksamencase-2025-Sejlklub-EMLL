@@ -1,5 +1,7 @@
+using WebApplication1.Interfaces;
 using WebApplication1.Clubs_Boats.models;
 using static WebApplication1.Clubs_Boats.models.Boat;
+
 
 namespace WebApplication1.Services
 {
@@ -28,18 +30,18 @@ namespace WebApplication1.Services
                 public List<Boat> GetAll() => boats;
 
                 public Boat? GetById(int id) =>
-                    boats.FirstOrDefault(b => b.Id == id);
+            boats.FirstOrDefault(b => b.Id == id);
 
-                public void Add(Boat boat)
-                {
+        public void Add(Boat boat)
+        {
                     boat.Id = boats.Any() ? boats.Max(x => x.Id) + 1 : 1;
-                    boats.Add(boat);
-                }
+            boats.Add(boat);
+        }
 
-                public void Update(Boat boat)
-                {
+        public void Update(Boat boat)
+        {
                     var existing = GetById(boat.Id);
-                    if (existing == null) return;
+            if (existing == null) return;
 
             existing.Name = boat.Name;
             existing.YearBuilt = boat.YearBuilt;

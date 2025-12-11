@@ -1,15 +1,16 @@
 ﻿using WebApplication1.Models.MemberModel;
+using WebApplication1.Interfaces;
 
 namespace WebApplication1.Services
 {
-    public class MemberRepository
+    public class MemberRepository : IMemberRepository
     {
         private static List<Member> members = new List<Member>()
         {
             new Member { Id = 1, FirstName="Jonas", LastName="Hansen", Email="test@test.dk", Phone="12345678" }
         };
 
-        public List<Member> GetAll() => members;
+        public List<Member> List() => members;
 
         public Member GetById(int id) =>
             members.FirstOrDefault(m => m.Id == id);
