@@ -1,0 +1,34 @@
+@page
+@model WebApplication1.Pages.Boats.AddMaintenanceModel
+@using WebApplication1.Clubs_Boats.models
+
+<h2>Tilføj vedligehold</h2>
+
+<p>Båd: <strong>@Model.Boat?.Name</strong></p>
+
+<a class="btn btn-outline-success mb-3" href="/Boats/AddMaintenance?boatId=@Model.Boat.Id">Tilføj vedligehold</a>
+
+<form method="post">
+    <input type="hidden" asp-for="Maintenance.BoatId" />
+    
+    <!-- dato -->
+    <div class="mb-3">
+        <label class="form-label">Dato</label>
+        <input class="form-control" type="date" asp-for="Maintenance.Date" />
+    </div>
+    
+    <!-- type vedligehold -->
+    <div class="mb-3">
+        <label class="form-label">Type</label>
+        <select class="form-select" asp-for="Maintenance.Type" asp-items="Html.GetEnumSelectList<MaintenanceType>()"></select>
+    </div>
+    
+    <!-- beskrivelse -->
+    <div class="mb-3">
+        <label class="form-label">Beskrivelse</label>
+        <textarea class="form-control" asp-for="Maintenance.Description" rows="3" placeholder="f.eks. Bundmaling udført"></textarea>
+    </div>
+    
+    <button type="submit" class="btn btn-success">Gem</button>
+    <a href="/Boats/Maintenance?id=@Model.Maintenance.BoatId" class="btn btn-secondary">Annuller</a>
+</form>

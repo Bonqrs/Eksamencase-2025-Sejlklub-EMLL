@@ -1,0 +1,75 @@
+@page
+@model WebApplication1.Pages.Boats.CreateModel
+@using static WebApplication1.Clubs_Boats.models.Boat
+@using WebApplication1.Clubs_Boats.models
+
+<h2>Opret båd</h2>
+
+<form method="post">
+   <!--- Navn -->
+    <div class="mb-3">
+        <label class="form-label">Navn</label>
+        <input class="form-control" asp-for="Boat.Name" placeholder="f.eks. Havfruen" />
+    </div>
+    <!--- Type -->
+    <div class="mb-3">
+        <label class="form-label">Bådtype</label>
+        <select class="form-select" asp-for="Boat.BoatType" asp-items="Html.GetEnumSelectList<BoatType>()"></select>
+    </div>
+    <!--- Model -->
+    <div class="mb-3">
+        <label class="form-label">Model</label>
+        <input class="form-control" asp-for="Boat.Model" />
+    </div>
+    <!--- År -->
+    <div class="mb-3">
+        <label class="form-label">Byggeår</label>
+        <input class="form-control" type="number" asp-for="Boat.YearBuilt" />
+    </div>
+    <!--- cap -->
+    <div class="mb-3">
+        <label class="form-label">Kapacitet (personer)</label>
+        <input class="form-control" type="number" asp-for="Boat.Capacity" />
+    </div>
+    <!--- pris -->
+    <div class="mb-3">
+        <label class="form-label">Pris</label>
+        <input class="form-control" type="number" asp-for="Boat.Price" />
+    </div>
+    <!--- status -->
+    <div class="mb-3">
+        <label class="form-label">Status</label>
+        <select class="form-select" asp-for="Boat.Status" asp-items="Html.GetEnumSelectList<BoatStatus>()"></select>
+    </div>
+    <!--- motor -->
+    <div class="mb-3">
+        <label class="form-label">Motorbeskrivelse</label>
+        <input class="form-control" asp-for="Boat.EngineDescription" />
+    </div>
+
+
+
+    <!--- mål og vægt -->
+    <!--- lændge -->
+    <div class="mb-3">
+        <label class="form-label">Længde (m)</label>
+        <input class="form-control" type="number" step="0.1" asp-for="Boat.Length" />
+    </div>
+    <!--- bredde -->
+    <div class="mb-3">
+        <label class="form-label">Bredde (m)</label>
+        <input class="form-control" type="number" step="0.1" asp-for="Boat.Width" />
+    </div>
+    <!--- højde -->
+    <div class="mb-3">
+        <label class="form-label">Højde (m)</label>
+        <input class="form-control" type="number" step="0.1" asp-for="Boat.Height" />
+    </div>
+    <!--- vægt -->
+    <div class="mb-3">
+        <label class="form-label">Vægt (kg)</label>
+        <input class="form-control" type="number" asp-for="Boat.Weight" />
+    </div>
+    <button class="btn btn-success" type="submit">Opret</button>
+    <a class="btn btn-secondary" href="/Boats">Annuller</a>
+</form>

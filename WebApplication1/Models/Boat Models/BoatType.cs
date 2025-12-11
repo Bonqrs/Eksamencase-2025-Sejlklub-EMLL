@@ -1,8 +1,11 @@
 ﻿namespace WebApplication1.Clubs_Boats.models
 {
-    public class BoatType
+    public enum BoatType
     {
-        public string Name { get; set; }
-        public int Id { get; set; }
+        Sejlbåd = 1,
+        Motorbåd = 2,
+        Jolle = 3,
+        Kano = 4,
+        Kajak = 5
     }
 }

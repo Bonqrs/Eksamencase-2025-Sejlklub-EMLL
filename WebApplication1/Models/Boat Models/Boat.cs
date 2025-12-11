@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public int BoatTypeId { get; set; } = 0;
+        public BoatType BoatType { get; set; } = BoatType.Sejlbåd;
         public double Model { get; set; } = 0;
         public int YearBuilt { get; set; } = 0;
         public int Capacity { get; set; } = 0;
@@ -13,10 +13,9 @@
         public string EngineDescription { get; set; } = string.Empty;
         public decimal Length { get; set; } = 0;
         public decimal Width { get; set; } = 0;
-        public decimal Height { get; set; }= 0;
+        public decimal Height { get; set; } = 0;
         public decimal Weight { get; set; } = 0;
         public List<Maintenance> Maintenances { get; set; } = new List<Maintenance>();
-
 
         public enum BoatStatus
         {

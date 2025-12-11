@@ -1,0 +1,15 @@
+@page
+@model WebApplication1.Pages.Boats.DeleteModel
+
+<h2>Slet båd</h2>
+
+<div class="alert alert-danger">
+    <strong>Advarsel!</strong> Du er ved at slette <strong>@Model.Boat.Name</strong>.
+</div>
+
+<p>Er du sikker på du vil fortsætte?</p>
+
+<form method="post" asp-route-id="@Model.Boat.Id">
+    <button type="submit" class="btn btn-danger">Ja, slet båden</button>
+    <a href="/Boats" class="btn btn-light">Nej, gå tilbage</a>
+</form>   
