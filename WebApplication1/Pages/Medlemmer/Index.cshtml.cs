@@ -1,21 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
-using WebApplication1.Services;
+using WebApplication1.Interfaces;
 using WebApplication1.Models.MemberModel;
 
 namespace WebApplication1.Pages.Medlemmer
 {
     public class IndexModel : PageModel
     {
-        private readonly MemberRepository repo;
+        private readonly IMemberRepository repo;
 
-        public IndexModel(MemberRepository repo)
+        public IndexModel(IMemberRepository repo)
         {
             this.repo = repo;
         }
 
-        public List<Member> Members { get; set; }
+        public List<Member> Members { get; set; } = new();
 
         public void OnGet()
         {

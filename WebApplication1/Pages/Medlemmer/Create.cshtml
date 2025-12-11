@@ -1,0 +1,50 @@
+﻿@page
+@model WebApplication1.Pages.Medlemmer.CreateModel
+
+<h2>Opret medlem</h2>
+
+<form method="post" class="mt-3">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="Member.FirstName" class="form-label"></label>
+        <input asp-for="Member.FirstName" class="form-control" />
+        <span asp-validation-for="Member.FirstName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Member.LastName" class="form-label"></label>
+        <input asp-for="Member.LastName" class="form-control" />
+        <span asp-validation-for="Member.LastName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Member.Email" class="form-label"></label>
+        <input asp-for="Member.Email" class="form-control" />
+        <span asp-validation-for="Member.Email" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Member.Phone" class="form-label"></label>
+        <input asp-for="Member.Phone" class="form-control" />
+        <span asp-validation-for="Member.Phone" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Member.Address" class="form-label"></label>
+        <input asp-for="Member.Address" class="form-control" />
+        <span asp-validation-for="Member.Address" class="text-danger"></span>
+    </div>
+
+    <div class="form-check mb-3">
+        <input asp-for="Member.IsActive" class="form-check-input" />
+        <label asp-for="Member.IsActive" class="form-check-label"></label>
+    </div>
+
+    <button type="submit" class="btn btn-success">Opret medlem</button>
+    <a asp-page="/Medlemmer/Index" class="btn btn-secondary ms-2">Annuller</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
