@@ -38,15 +38,6 @@
         <span asp-validation-for="Member.Address" class="text-danger"></span>
     </div>
 
-    <div class="form-check mb-3">
-        <input asp-for="Member.IsActive" class="form-check-input" />
-        <label asp-for="Member.IsActive" class="form-check-label"></label>
-    </div>
-
     <button type="submit" class="btn btn-success">Gem ændringer</button>
     <a asp-page="/Medlemmer/Index" class="btn btn-secondary ms-2">Annuller</a>
 </form>
-
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
