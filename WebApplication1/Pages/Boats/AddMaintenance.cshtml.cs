@@ -2,18 +2,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApplication1.Clubs_Boats.models;
 using WebApplication1.Services;
+using WebApplication1.Interfaces;
 
 namespace WebApplication1.Pages.Boats
 {
     public class AddMaintenanceModel : PageModel
     {
         private readonly MaintenanceRepository maintenanceRepo;
-        private readonly BoatRepository boatRepo;
+        private readonly IBoatRepository _boatRepo;
 
-        public AddMaintenanceModel(MaintenanceRepository maintenanceRepo, BoatRepository boatRepo)
+        public AddMaintenanceModel(MaintenanceRepository maintenanceRepo, IBoatRepository boatRepo)
         {
             this.maintenanceRepo = maintenanceRepo;
-            this.boatRepo = boatRepo;
+            _boatRepo = boatRepo;
         }
 
         [BindProperty]
@@ -23,7 +24,7 @@ namespace WebApplication1.Pages.Boats
 
         public IActionResult OnGet(int boatId)
         {
-            Boat = boatRepo.GetById(boatId);
+            Boat = _boatRepo.GetById(boatId);
             if (Boat == null)
                 return RedirectToPage("Index");
 

@@ -9,18 +9,18 @@ namespace WebApplication1.Pages.Boats
 {
     public class IndexModel : PageModel
     {
-        private readonly BoatRepository repo;
+        private readonly IBoatRepository _boatRepo;
 
-        public IndexModel(BoatRepository repo)
+        public IndexModel(IBoatRepository boatRepo)
         {
-            this.repo = repo;
+            _boatRepo = boatRepo;
         }
 
         public List<Boat> Boats { get; set; }
 
         public void OnGet()
         {
-            Boats = repo.GetAll();
+            Boats = _boatRepo.GetAll();
         }
     }
 }

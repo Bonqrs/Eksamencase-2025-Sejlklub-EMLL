@@ -5,14 +5,14 @@ using static WebApplication1.Clubs_Boats.models.Boat;
 
 namespace WebApplication1.Services
 {
-    public class BoatRepository
+    public class BoatRepository : IBoatRepository
     {
         private static List<Boat> boats =
         [
-            new Boat 
-            { 
-                Id = 1, 
-                Name = "Havfruen", 
+            new Boat
+            {
+                Id = 1,
+                Name = "Havfruen",
                 BoatType = BoatType.Sejlbåd,
                 Model = 2020,
                 YearBuilt = 2020,
@@ -27,20 +27,20 @@ namespace WebApplication1.Services
             }
         ];
 
-                public List<Boat> GetAll() => boats;
+        public List<Boat> GetAll() => boats;
 
-                public Boat? GetById(int id) =>
+        public Boat? GetById(int id) =>
             boats.FirstOrDefault(b => b.Id == id);
 
         public void Add(Boat boat)
         {
-                    boat.Id = boats.Any() ? boats.Max(x => x.Id) + 1 : 1;
+            boat.Id = boats.Any() ? boats.Max(x => x.Id) + 1 : 1;
             boats.Add(boat);
         }
 
         public void Update(Boat boat)
         {
-                    var existing = GetById(boat.Id);
+            var existing = GetById(boat.Id);
             if (existing == null) return;
 
             existing.Name = boat.Name;
@@ -64,3 +64,4 @@ namespace WebApplication1.Services
         }
     }
 }
+

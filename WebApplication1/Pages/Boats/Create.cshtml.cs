@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
+using WebApplication1.Interfaces;
 using WebApplication1.Services;
 using WebApplication1.Clubs_Boats.models;
 
@@ -8,15 +8,15 @@ namespace WebApplication1.Pages.Boats
 {
     public class CreateModel : PageModel
     {
-        private readonly BoatRepository repo;
+        private readonly IBoatRepository _boatRepo;
 
-        public CreateModel(BoatRepository repo)
+        public CreateModel(IBoatRepository boatRepo)
         {
-            this.repo = repo;
+            _boatRepo = boatRepo;
         }
 
         [BindProperty]
-        public Boat Boat { get; set; }
+        public Boat Boat { get; set; } = new();
 
         public void OnGet() { }
 
@@ -25,7 +25,7 @@ namespace WebApplication1.Pages.Boats
             if (!ModelState.IsValid)
                 return Page();
 
-            repo.Add(Boat);
+            _boatRepo.Add(Boat);
             return RedirectToPage("Index");
         }
     }

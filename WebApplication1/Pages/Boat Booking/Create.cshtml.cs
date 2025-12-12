@@ -29,7 +29,7 @@ namespace WebApplication1.Pages.Boat_Booking
         public void OnGet()
         {
             MemberList = new SelectList(_memberRepo.List(), "Id", "FirstName");
-            BoatList = new SelectList(_boatRepo.List(), "Id", "Name");
+            BoatList = new SelectList(_boatRepo.GetAll(), "Id", "Name");
         }
 
         public IActionResult OnPost()
