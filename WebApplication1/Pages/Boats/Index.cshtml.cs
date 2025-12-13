@@ -21,6 +21,15 @@ namespace WebApplication1.Pages.Boats
         public void OnGet()
         {
             Boats = _boatRepo.GetAll();
+            string? Searchstring = Request.Query["search"];
+            if (!String.IsNullOrEmpty(Searchstring))
+            {
+                ViewData["search"] = Searchstring;
+                Boats = Boats.Where(b => b.Name.ToLower().Contains(Searchstring.ToLower()) ||
+                               b.BoatType.ToString().ToLower().Contains(Searchstring.ToLower()) ||
+                               b.EngineDescription.ToLower().Contains(Searchstring.ToLower()))
+                   .ToList();
+            }
         }
     }
 }

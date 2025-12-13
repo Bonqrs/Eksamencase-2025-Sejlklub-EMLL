@@ -1,4 +1,5 @@
-﻿using WebApplication1.Interfaces;
+﻿using WebApplication1.Clubs_Boats.models;
+using WebApplication1.Interfaces;
 using WebApplication1.Models.Booking;
 
 namespace WebApplication1.Services
@@ -8,6 +9,7 @@ namespace WebApplication1.Services
         private List<Booking> bookings = new();
         public List<Booking> List() => bookings;
         public Booking? Get(int id) => bookings.FirstOrDefault(b => b.Id == id);
+
 
         public void Add(Booking b)
         {

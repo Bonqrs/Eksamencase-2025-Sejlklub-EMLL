@@ -39,8 +39,8 @@
                         </li>
                     </ul>
                     <!-- Sreach field -->
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="text" placeholder="Search">
+                    <form class="d-flex" method="get" name="searchform">
+                        <input name="search" class="form-control me-2" type="text" value="@ViewData["search"]" placeholder="Search">
                         <button class="btn btn-secondary" type="submit">Search</button>
                     </form>
                 </div>
