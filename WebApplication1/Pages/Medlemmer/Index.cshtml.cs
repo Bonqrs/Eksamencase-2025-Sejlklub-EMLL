@@ -19,6 +19,15 @@ namespace WebApplication1.Pages.Medlemmer
         public void OnGet()
         {
             Members = repo.List();
+            string? Searchstring = Request.Query["search"];
+            if (!String.IsNullOrEmpty(Searchstring))
+            {
+                ViewData["search"] = Searchstring;
+                Members = Members.Where(m => m.FirstName.ToLower().Contains(Searchstring.ToLower()) ||
+                               m.LastName.ToLower().Contains(Searchstring.ToLower()) ||
+                               m.Email.ToLower().Contains(Searchstring.ToLower()))
+                   .ToList();
+            }
         }
     }
 }
