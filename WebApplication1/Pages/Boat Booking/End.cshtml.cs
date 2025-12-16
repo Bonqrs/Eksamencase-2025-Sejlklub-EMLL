@@ -8,11 +8,11 @@ namespace WebApplication1.Pages.Boat_Booking
     {
         private readonly IBookingRepository _bookingRepo;
 
-        public EndModel(IBookingRepository bookingRepo)
+        public EndModel(IBookingRepository bookingRepo) // Injekterer booking repository
         {
             _bookingRepo = bookingRepo;
         }
-
+        // Metode til at afslutte en booking
         public IActionResult OnGet(int id)
         {
             var booking = _bookingRepo.Get(id);
@@ -24,6 +24,8 @@ namespace WebApplication1.Pages.Boat_Booking
             _bookingRepo.Update(booking);
 
             return RedirectToPage("Index");
+
+            // Returnere tilbake til index siden etter at bookingen er afsluttet
         }
     }
 }

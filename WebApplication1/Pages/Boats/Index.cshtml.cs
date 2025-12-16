@@ -30,6 +30,10 @@ namespace WebApplication1.Pages.Boats
                                b.EngineDescription.ToLower().Contains(Searchstring.ToLower()))
                    .ToList();
             }
+
+        Boats = Boats.OrderBy(b => b.Name).ToList();
+            // Viser både i alfabetisk rækkefølge efter navn
+
         }
     }
 }

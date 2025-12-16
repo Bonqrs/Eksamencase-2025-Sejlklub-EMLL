@@ -8,6 +8,7 @@ namespace WebApplication1.Pages.Boat_Booking
 {
     public class IndexModel : PageModel
     {
+        // Repositories for bookings, members, og både
         private readonly IBookingRepository _bookingRepo;
         private readonly IMemberRepository _memberRepo;
         private readonly IBoatRepository _boatRepo;
@@ -18,10 +19,10 @@ namespace WebApplication1.Pages.Boat_Booking
             _memberRepo = memberRepo;
             _boatRepo = boatRepo;
         }
-
+        // Lister til aktive og fuldførte bookinger
         public List<BookingDisplay> ActiveBookings { get; set; } = new List<BookingDisplay>();
         public List<BookingDisplay> CompletedBookings { get; set; } = new List<BookingDisplay>();
-
+        // Hent og forbered data til visning
         public void OnGet()
         {
             ActiveBookings = _bookingRepo
@@ -31,8 +32,8 @@ namespace WebApplication1.Pages.Boat_Booking
         {
         var member = _memberRepo.GetById(b.MemberId);
         var boat = _boatRepo.GetById(b.BoatId);
-
-        return new BookingDisplay
+            // Håndter tilfælde hvor medlemmet eller båden ikke findes
+            return new BookingDisplay
         {
             Id = b.Id,
             MemberName = member != null
@@ -48,7 +49,7 @@ namespace WebApplication1.Pages.Boat_Booking
         };
     })
     .ToList();
-
+            // Fuldførte bookinger
             CompletedBookings = _bookingRepo
          .List()
          .Where(b => b.EndTime != null)
@@ -73,7 +74,7 @@ namespace WebApplication1.Pages.Boat_Booking
          }) .ToList();
         }
     }
-    public class BookingDisplay
+    public class BookingDisplay // ViewModel til visning af bookingoplysninger
     {
         public int Id { get; set; }
         public string MemberName { get; set; }

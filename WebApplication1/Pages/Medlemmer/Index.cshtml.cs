@@ -28,6 +28,8 @@ namespace WebApplication1.Pages.Medlemmer
                                m.Email.ToLower().Contains(Searchstring.ToLower()))
                    .ToList();
             }
+        Members = Members.OrderBy(m => m.FirstName).ThenBy(m => m.LastName).ToList();
+            // Viser Medlemmer i alfabetisk rækkefølge efter Fornavn og Efternavn
         }
     }
 }
