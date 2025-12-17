@@ -14,3 +14,4 @@ public interface IBookingRepository
 
     List<Booking> GetActiveBookings();
 }
+// Henter alle aktive bookinger fra databasen

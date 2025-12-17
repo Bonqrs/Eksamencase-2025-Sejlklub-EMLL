@@ -13,3 +13,4 @@ namespace WebApplication1.Interfaces
         void Delete(int id);
     }
 }
+// Interface der definerer metoder til at hente, oprette, opdatere og slette medlemmer.

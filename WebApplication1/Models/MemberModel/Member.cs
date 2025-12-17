@@ -11,3 +11,4 @@
         public bool IsActive { get; set; } = true;
     }
 }
+// En nem og hurtig class som der sætter strings og andet til hjemmesiden, for at administrere og se informationer om medlemmerne
