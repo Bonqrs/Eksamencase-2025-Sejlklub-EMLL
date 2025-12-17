@@ -1,5 +1,6 @@
-﻿using WebApplication1.Models.MemberModel;
+﻿using WebApplication1.Clubs_Boats.models;
 using WebApplication1.Interfaces;
+using WebApplication1.Models.MemberModel;
 
 namespace WebApplication1.Services
 {

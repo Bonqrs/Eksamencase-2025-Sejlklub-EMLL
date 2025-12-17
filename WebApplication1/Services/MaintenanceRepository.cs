@@ -30,6 +30,8 @@ namespace WebApplication1.Services
             return logs.Where(m => m.BoatId == boatId).OrderByDescending(m => m.Date).ToList();
         }
 
+        public List<Maintenance> List() => logs;
+
         public void Add(Maintenance m)
         {
             m.Id = logs.Count > 0 ? logs.Max(x => x.Id) + 1 : 1;

@@ -2,7 +2,6 @@ using WebApplication1.Interfaces;
 using WebApplication1.Clubs_Boats.models;
 using static WebApplication1.Clubs_Boats.models.Boat;
 
-
 namespace WebApplication1.Services
 {
     public class BoatRepository : IBoatRepository
@@ -28,6 +27,8 @@ namespace WebApplication1.Services
         ];
 
         public List<Boat> GetAll() => boats;
+        
+        public List<Boat> List() => boats;
 
         public Boat? GetById(int id) =>
             boats.FirstOrDefault(b => b.Id == id);

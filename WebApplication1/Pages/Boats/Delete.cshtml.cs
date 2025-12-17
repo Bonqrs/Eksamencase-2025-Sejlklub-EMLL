@@ -8,18 +8,18 @@ namespace WebApplication1.Pages.Boats
 {
     public class DeleteModel : PageModel
     {
-        private readonly BoatRepository boatRepository;
+        private readonly IBoatRepository _boatRepository;
 
-        public DeleteModel(BoatRepository boatRepository)
+        public DeleteModel(IBoatRepository boatRepository)
         {
-            this.boatRepository = boatRepository;
+            this._boatRepository = boatRepository;
         }
 
         public Boat Boat { get; set; }
 
         public IActionResult OnGet(int id)
         {
-            Boat = boatRepository.GetById(id);
+            Boat = _boatRepository.GetById(id);
             if (Boat == null)
                 return RedirectToPage("Index");
 
@@ -28,7 +28,7 @@ namespace WebApplication1.Pages.Boats
 
         public IActionResult OnPost(int id)
         {
-            boatRepository.Delete(id);
+            _boatRepository.Delete(id);
             return RedirectToPage("Index");
         }
     }

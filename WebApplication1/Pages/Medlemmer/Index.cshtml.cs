@@ -19,6 +19,17 @@ namespace WebApplication1.Pages.Medlemmer
         public void OnGet()
         {
             Members = repo.List();
+            string? Searchstring = Request.Query["search"];
+            if (!String.IsNullOrEmpty(Searchstring))
+            {
+                ViewData["search"] = Searchstring;
+                Members = Members.Where(m => m.FirstName.ToLower().Contains(Searchstring.ToLower()) ||
+                               m.LastName.ToLower().Contains(Searchstring.ToLower()) ||
+                               m.Email.ToLower().Contains(Searchstring.ToLower()))
+                   .ToList();
+            }
+        Members = Members.OrderBy(m => m.FirstName).ThenBy(m => m.LastName).ToList();
+            // Viser Medlemmer i alfabetisk rækkefølge efter Fornavn og Efternavn
         }
     }
 }

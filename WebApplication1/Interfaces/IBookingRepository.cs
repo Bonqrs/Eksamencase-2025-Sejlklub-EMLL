@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace WebApplication1.Interfaces;
 
-public interface IBookingRepository
+public interface IBookingRepository // Interface til booking repository
 {
     List<Booking> List();
     Booking? Get(int id);
@@ -13,5 +13,6 @@ public interface IBookingRepository
     void Delete(int id);
 
     List<Booking> GetActiveBookings();
+    // Henter alle aktive bookinger
 }
 // Henter alle aktive bookinger fra databasen
