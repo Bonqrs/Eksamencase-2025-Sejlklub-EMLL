@@ -4,10 +4,14 @@ using static WebApplication1.Clubs_Boats.models.Boat;
 
 namespace WebApplication1.Services
 {
+    
+    // funktion henter, opdaterer og sletter både
     public class BoatRepository : IBoatRepository
     {
+        // Static liste der holder alle både i hukommelsen
         private static List<Boat> boats =
         [
+            // Test 
             new Boat
             {
                 Id = 1,
@@ -26,24 +30,32 @@ namespace WebApplication1.Services
             }
         ];
 
+        // Henter alle både fra listen
         public List<Boat> GetAll() => boats;
-        
-        public List<Boat> List() => boats;
 
+        // finder en båd ud fra id
+        // null = ikke fundet
         public Boat? GetById(int id) =>
             boats.FirstOrDefault(b => b.Id == id);
 
+        // Tilføje båd
         public void Add(Boat boat)
         {
+            
+            // har tag højeste id + 1
+            // tom start med id 1
             boat.Id = boats.Any() ? boats.Max(x => x.Id) + 1 : 1;
             boats.Add(boat);
         }
 
+        // Opdater båd
         public void Update(Boat boat)
         {
+            // Find båd
             var existing = GetById(boat.Id);
-            if (existing == null) return;
+            if (existing == null) return; 
 
+            
             existing.Name = boat.Name;
             existing.YearBuilt = boat.YearBuilt;
             existing.BoatType = boat.BoatType;
@@ -58,6 +70,7 @@ namespace WebApplication1.Services
             existing.EngineDescription = boat.EngineDescription;
         }
 
+        // Slet
         public void Delete(int id)
         {
             var boat = GetById(id);

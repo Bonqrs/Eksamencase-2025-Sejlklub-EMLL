@@ -2,15 +2,17 @@
 
 namespace WebApplication1.Services
 {
+    
     public class MaintenanceRepository
     {
-        // test data
+        // Static liste 
         private static List<Maintenance> logs = new List<Maintenance>
         {
+            // Test
             new Maintenance
             {
                 Id = 1,
-                BoatId = 1,
+                BoatId = 1,  
                 Date = new DateTime(2024, 5, 15),
                 Type = MaintenanceType.Paint,
                 Description = "Bundmaling udført"
@@ -25,19 +27,26 @@ namespace WebApplication1.Services
             }
         };
 
+        // Henter alle vedligeholdelser til en specifik båd
         public List<Maintenance> GetByBoatId(int boatId)
         {
-            return logs.Where(m => m.BoatId == boatId).OrderByDescending(m => m.Date).ToList();
+            return logs.Where(m => m.BoatId == boatId)
+                       .OrderByDescending(m => m.Date)
+                       .ToList();
         }
 
-        public List<Maintenance> List() => logs;
+        // Hent
+        public List<Maintenance> GetAll() => logs;
 
+        // Tilføje
         public void Add(Maintenance m)
         {
+            // nyt id
             m.Id = logs.Count > 0 ? logs.Max(x => x.Id) + 1 : 1;
             logs.Add(m);
         }
 
+        // Slet
         public void Delete(int id)
         {
             var m = logs.FirstOrDefault(x => x.Id == id);

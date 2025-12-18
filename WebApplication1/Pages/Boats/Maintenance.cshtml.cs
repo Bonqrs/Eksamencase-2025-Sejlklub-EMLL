@@ -26,7 +26,7 @@ namespace WebApplication1.Pages.Boats
             if (Boat == null)
                 return RedirectToPage("Index");
 
-            // hent vedligeholdelseslog
+           
             MaintenanceLogs = maintenanceRepo.GetByBoatId(id);
             return Page();
         }

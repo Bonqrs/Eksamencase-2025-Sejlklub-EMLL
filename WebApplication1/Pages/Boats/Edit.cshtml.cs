@@ -6,6 +6,7 @@ using WebApplication1.Clubs_Boats.models;
 
 namespace WebApplication1.Pages.Boats
 {
+    // Rediger en båd
     public class EditModel : PageModel
     {
         private readonly IBoatRepository _boatRepo;
@@ -15,7 +16,7 @@ namespace WebApplication1.Pages.Boats
             _boatRepo = boatRepo;
         }
 
-        //data til property//
+        // båden der redigeres
         [BindProperty]
         public Boat Boat { get; set; }
 

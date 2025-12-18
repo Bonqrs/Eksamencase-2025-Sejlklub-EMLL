@@ -6,6 +6,7 @@ using WebApplication1.Clubs_Boats.models;
 
 namespace WebApplication1.Pages.Boats
 {
+    // PageModel for sletning af båd
     public class DeleteModel : PageModel
     {
         private readonly IBoatRepository _boatRepository;
@@ -17,6 +18,7 @@ namespace WebApplication1.Pages.Boats
 
         public Boat Boat { get; set; }
 
+        //vis bekræftelsessiden for sletning
         public IActionResult OnGet(int id)
         {
             Boat = _boatRepository.GetById(id);
