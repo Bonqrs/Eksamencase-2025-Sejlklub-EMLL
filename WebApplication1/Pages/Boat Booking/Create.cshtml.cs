@@ -25,15 +25,15 @@ namespace WebApplication1.Pages.Boat_Booking
 
         public SelectList MemberList { get; set; }
         public SelectList BoatList { get; set; }
-        // Henter data til dropdown-lister
+        // Henter data til dropdown lister
 
-        public void OnGet() // Håndterer GET-anmodning
+        public void OnGet() // Håndterer GET anmodning
         {
             MemberList = new SelectList(_memberRepo.List(), "Id", "FirstName");
             BoatList = new SelectList(_boatRepo.GetAll(), "Id", "Name");
         }
 
-        public IActionResult OnPost() // Håndterer POST-anmodning
+        public IActionResult OnPost() // Håndterer POST anmodning
         {
             if (!ModelState.IsValid)
                 return Page();
@@ -41,7 +41,7 @@ namespace WebApplication1.Pages.Boat_Booking
             _bookingRepo.Add(Booking);
 
             return RedirectToPage("Index");
-            // Redirecter til index-siden efter oprettelse af booking
+            // Redirecter til index siden efter oprettelse af booking
         }
     }
 }

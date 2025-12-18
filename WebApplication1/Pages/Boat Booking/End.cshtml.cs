@@ -25,7 +25,7 @@ namespace WebApplication1.Pages.Boat_Booking
 
             return RedirectToPage("Index");
 
-            // Returnere tilbake til index siden etter at bookingen er afsluttet
+            // Returnere tilbage til index siden etter at bookingen er afsluttet
         }
     }
 }
