@@ -18,6 +18,7 @@ namespace WebApplication1.Pages.Medlemmer
         {
         }
 
+        // Valdier og gemmmer: hvis ugyldig viser den siiden igen 
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)

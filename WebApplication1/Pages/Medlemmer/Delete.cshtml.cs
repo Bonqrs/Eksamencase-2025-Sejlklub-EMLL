@@ -14,6 +14,7 @@ namespace WebApplication1.Pages.Medlemmer
         [BindProperty]
         public Member Member { get; set; } = null!;
 
+        // henter medlem og viser bkrætelsesiden 
         public IActionResult OnGet(int? id)
         {
             if (id == null) return NotFound();
@@ -25,6 +26,7 @@ namespace WebApplication1.Pages.Medlemmer
             return Page();
         }
 
+        // Bekræfter sletning og sletter medlem 
         public IActionResult OnPost()
         {
             if (Member == null || Member.Id == 0) return BadRequest();

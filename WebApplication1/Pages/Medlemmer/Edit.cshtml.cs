@@ -14,6 +14,7 @@ namespace WebApplication1.Pages.Medlemmer
         [BindProperty]
         public Member Member { get; set; } = new();
 
+        // get henter medlem og viser edit siden 
         public IActionResult OnGet(int? id)
         {
             if (id == null) return NotFound();
@@ -25,6 +26,7 @@ namespace WebApplication1.Pages.Medlemmer
             return Page();
         }
 
+        // valider og opater meldem: hvis ugldigt viser den siden igen.
         public IActionResult OnPost()
         {
             if (!ModelState.IsValid)

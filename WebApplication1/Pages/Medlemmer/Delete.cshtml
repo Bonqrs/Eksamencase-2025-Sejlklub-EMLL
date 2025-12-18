@@ -2,13 +2,14 @@
 @model WebApplication1.Pages.Medlemmer.DeleteModel
 
 <h2>Slet medlem</h2>
-
+<!--Slet-->
 @if (Model.Member == null)
 {
     <div class="alert alert-warning">Medlem ikke fundet.</div>
 }
 else
 {
+    <!--Hvad den skal slet-->
     <div class="mb-3">
         <p><strong>Navn:</strong> @Model.Member.FirstName @Model.Member.LastName</p>
         <p><strong>Email:</strong> @Model.Member.Email</p>
@@ -16,10 +17,12 @@ else
         <p><strong>Adresse:</strong> @Model.Member.Address</p>
     </div>
 
+    <!--Slet Knap-->
     <form method="post" class="d-inline">
         <input asp-for="Member.Id" type="hidden" />
         <button type="submit" class="btn btn-danger">Bekræft sletning</button>
     </form>
 
+    <!--Annuler Knap-->
     <a asp-page="/Medlemmer/Index" class="btn btn-secondary ms-2">Annuller</a>
 }
