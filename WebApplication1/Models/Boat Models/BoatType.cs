@@ -2,7 +2,6 @@
 {
     // Enum er det der definerer hvilke type både klubben har
 
-    // En enum er en liste af valgmuligheder man kan vælge imellem
     public enum BoatType
     {
         Sejlbåd = 1,   
