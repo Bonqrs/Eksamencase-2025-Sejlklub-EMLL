@@ -1,0 +1,57 @@
+@*
+*@
+@page
+@model WebApplication1.Pages.Boats.IndexModel
+
+<h2>Bådoversigt</h2>
+
+
+@* Knap til opret ny båd *@
+<a class="btn btn-primary" href="/Boats/Create">Opret båd</a>
+
+@* Tabel med alle både *@
+<table class="table table-striped mt-3">
+    <thead>
+        <tr>
+            <th>Navn</th>
+            <th>Bådtype</th>
+            <th>Byggeår</th>
+            <th>Kapacitet</th>
+            <th>Status</th>
+            <th></th> @* Tom header til knapper *@
+        </tr>
+    </thead>
+    <tbody>
+        @* Loop gennem alle både og lav en række for hver *@
+        @foreach (var b in Model.Boats)
+        {
+            <tr>
+                <td>@b.Name</td>
+                <td>@b.BoatType</td>
+                <td>@b.YearBuilt</td>
+                <td>@b.Capacity personer</td>
+                <td>
+                    @* Vis status som farvet badge *@
+                    @if (b.Status == WebApplication1.Clubs_Boats.models.Boat.BoatStatus.Available)
+                    {
+                        <span class="badge bg-success">Tilgængelig</span>
+                    }
+                    else if (b.Status == WebApplication1.Clubs_Boats.models.Boat.BoatStatus.UnderMaintenance)
+                    {
+                        <span class="badge bg-warning text-dark">Vedligehold</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Ikke tilgængelig</span>
+                    }
+                </td>
+                <td>
+                    @* Handlings-knapper for hver båd *@
+                    <a class="btn btn-warning btn-sm" href="/Boats/Edit?id=@b.Id">Rediger</a>
+                    <a class="btn btn-info btn-sm" href="/Boats/Maintenance?id=@b.Id">Vedligehold</a>
+                    <a class="btn btn-danger btn-sm" href="/Boats/Delete?id=@b.Id">Slet</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
